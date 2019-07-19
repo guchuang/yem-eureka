@@ -1,0 +1,17 @@
+server:
+  port: 9900
+  ip: 127.0.0.1
+spring:
+  application:
+    name: eshop-eureka
+
+#--------------------eureka---------------------
+eureka:
+  instance:
+    hostname: eureka-server
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${server.ip}:${server.port}/eureka/
